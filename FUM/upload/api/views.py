@@ -1,6 +1,6 @@
 from rest_framework import generics
-from upload.models import Collaborate_Files_A00, Module, Contact
-from .serializers import FUMSerializer, ModuleSerializer, ContactSerializer, FileListSerializer, FileCreateSerializer
+from upload.models import Collaborate_Files_A00, Module
+from .serializers import FUMSerializer, ModuleSerializer,FileListSerializer, FileCreateSerializer
 from rest_framework.filters import SearchFilter, OrderingFilter
 from django.db.models import Q
 
@@ -14,26 +14,26 @@ class FUMCreate(generics.CreateAPIView):
         print(check) #to be imported in a repository
         return Collaborate_Files_A00.objects.all()
 
-class FUMRead(generics.RetrieveAPIView):
+class FUMRead(generics.RetrieveUpdateAPIView):
     lookup_field = 'collaborate_files_a00_rec'
     serializer_class = FUMSerializer
 
     def get_queryset(self):
         return Collaborate_Files_A00.objects.all()
 
-class ModuleRead(generics.RetrieveAPIView):
+class ModuleRead(generics.RetrieveUpdateAPIView):
     lookup_field = 'pk'
     serializer_class = ModuleSerializer
 
     def get_queryset(self):
         return Module.objects.all()
 
-class ContactRead(generics.RetrieveAPIView):
-    lookup_field = 'pk'
-    serializer_class = ContactSerializer
+#class ContactRead(generics.RetrieveAPIView):
+    #lookup_field = 'pk'
+    #serializer_class = ContactSerializer
 
-    def get_queryset(self):
-        return Contact.objects.all()
+    #def get_queryset(self):
+        #return Contact.objects.all()
 
 
 class FileListAPIView(generics.ListAPIView):

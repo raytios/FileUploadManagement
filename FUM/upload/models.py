@@ -1,17 +1,18 @@
 from django.db import models
 from django.conf import settings
 #from file_upload.models import Document
+from django.contrib.auth.models import User
 
 # Create your models here.
 
-class Contact(models.Model):
-    first_name = models.CharField(max_length=250)
-    last_name = models.CharField(max_length=250)
-    address = models.CharField(max_length=250)
+#class Contact(models.Model):
+    #first_name = models.CharField(max_length=250)
+    #last_name = models.CharField(max_length=250)
+    #address = models.CharField(max_length=250)
 
 
-    def __str__(self):
-        return str(self.last_name)
+    #def __str__(self):
+        #return str(self.last_name)
 
 
 class Module(models.Model):
@@ -25,7 +26,7 @@ class Module(models.Model):
 class Collaborate_Files_A00(models.Model):
     collaborate_files_a00_rec = models.AutoField(primary_key=True)
     module_used_id = models.ForeignKey(Module, on_delete=models.CASCADE)
-    contact_id = models.ForeignKey(Contact, on_delete=models.CASCADE)
+    contact_id = models.ForeignKey(User, on_delete=models.CASCADE) #as this belong to another person's table
 
     IMG = "IMAGE"
     AUDIO = "AUDIO"

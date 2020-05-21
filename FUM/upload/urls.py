@@ -1,6 +1,6 @@
 from django.urls import path
 
-from FUM.upload.migrations import views
+from File_Upload_Management.upload.migrations import views
 
 urlpatterns = [
     path('', views.index, name='index'),

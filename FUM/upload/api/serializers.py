@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from upload.models import Collaborate_Files_A00, Module, Contact
+from upload.models import Collaborate_Files_A00, Module
 
 
 
@@ -29,17 +29,17 @@ class ModuleSerializer(serializers.ModelSerializer):
             'pk',
             'module_name',
         ]
-class ContactSerializer(serializers.ModelSerializer):
+#class ContactSerializer(serializers.ModelSerializer):
 
-    class Meta:
-        model = Contact
+    #class Meta:
+        #model = Contact
 
-        fields = [
-            'pk',
-            'first_name',
-            'last_name',
-            'address',
-            ]
+        #fields = [
+            #'pk',
+            #'first_name',
+            #'last_name',
+            #'address',
+            #]
 class FileListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Collaborate_Files_A00

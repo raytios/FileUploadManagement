@@ -1,4 +1,4 @@
-from .views import FUMRead, ModuleRead, ContactRead, FUMCreate, FileListAPIView
+from .views import FUMRead, ModuleRead, FUMCreate, FileListAPIView
 
 from django.contrib import admin
 from django.urls import path, include, re_path
